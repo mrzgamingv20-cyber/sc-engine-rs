@@ -47,7 +47,7 @@ pub extern "system" fn Java_com_scengine_core_EngineBridge_nativeLog(
 ) {
     let msg: String = env
         .get_string(&message)
-        .map(|s| String::from(&*s))
+        .map(|s| s.into())
         .unwrap_or_default();
     crate::log::write(crate::log::LogType::Information, &msg);
 }
