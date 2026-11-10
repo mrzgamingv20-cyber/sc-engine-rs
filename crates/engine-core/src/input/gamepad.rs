@@ -17,7 +17,7 @@ pub struct GamePadState {
 }
 
 impl GamePadState {
-    fn new() -> Self {
+    const fn new() -> Self {
         GamePadState {
             is_connected: false,
             sticks: [Vector2::ZERO; 2],

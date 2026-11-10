@@ -273,6 +273,16 @@ impl std::ops::Div<f32> for Vector3 {
     }
 }
 
+impl std::ops::DivAssign<f32> for Vector3 {
+    #[inline]
+    fn div_assign(&mut self, d: f32) {
+        let inv = 1.0 / d;
+        self.x *= inv;
+        self.y *= inv;
+        self.z *= inv;
+    }
+}
+
 impl std::ops::Neg for Vector3 {
     type Output = Vector3;
     #[inline]

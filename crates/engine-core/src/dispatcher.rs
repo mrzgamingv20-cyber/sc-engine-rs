@@ -1,17 +1,17 @@
-use std::sync::{Condvar, Mutex};
+use std::sync::{Arc, Condvar, Mutex};
 use std::collections::VecDeque;
 
 type Action = Box<dyn FnOnce() + Send + 'static>;
+type WaitEvent = Arc<(Mutex<bool>, Condvar)>;
 
 struct ActionInfo {
     action: Action,
-    event: Option<(Mutex<bool>, Condvar)>,
+    event: Option<WaitEvent>,
 }
 
 pub struct Dispatcher {
     main_thread_id: Mutex<Option<std::thread::ThreadId>>,
     actions: Mutex<VecDeque<ActionInfo>>,
-    current_actions: Mutex<Vec<ActionInfo>>,
 }
 
 static DISPATCHER: Mutex<Option<Dispatcher>> = Mutex::new(None);
@@ -22,7 +22,6 @@ pub fn init() {
         *d = Some(Dispatcher {
             main_thread_id: Mutex::new(Some(std::thread::current().id())),
             actions: Mutex::new(VecDeque::new()),
-            current_actions: Mutex::new(Vec::new()),
         });
     }
 }
@@ -46,13 +45,13 @@ pub fn dispatch<F: FnOnce() + Send + 'static>(action: F, wait_until_completed: b
     if std::thread::current().id() == main_id {
         action();
     } else if wait_until_completed {
-        let pair = (Mutex::new(false), Condvar::new());
+        let pair: WaitEvent = Arc::new((Mutex::new(false), Condvar::new()));
         let info = ActionInfo {
             action: Box::new(action),
             event: Some(pair.clone()),
         };
         dispatcher.actions.lock().unwrap().push_back(info);
-        let (lock, cvar) = &pair;
+        let (lock, cvar) = &*pair;
         let mut done = lock.lock().unwrap();
         while !*done {
             done = cvar.wait(done).unwrap();
@@ -78,7 +77,8 @@ pub fn execute_actions_on_current_thread() {
 
     for info in to_execute {
         (info.action)();
-        if let Some((lock, cvar)) = &info.event {
+        if let Some(event) = &info.event {
+            let (lock, cvar) = &**event;
             *lock.lock().unwrap() = true;
             cvar.notify_one();
         }

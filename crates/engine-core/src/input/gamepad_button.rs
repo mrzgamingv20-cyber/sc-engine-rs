@@ -20,4 +20,13 @@ pub enum GamePadButton {
 
 impl GamePadButton {
     pub const COUNT: usize = 14;
+
+    #[inline]
+    pub fn index(&self) -> usize {
+        if (*self as i32) < 0 {
+            0
+        } else {
+            *self as usize
+        }
+    }
 }
