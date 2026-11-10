@@ -4,7 +4,7 @@ use std::time::{Instant, Duration};
 static START_TIME: OnceLock<Instant> = OnceLock::new();
 
 pub fn init() {
-    START_TIME.get_or_init(|| Instant::now());
+    START_TIME.get_or_init(Instant::now);
 }
 
 pub fn total_time() -> Duration {

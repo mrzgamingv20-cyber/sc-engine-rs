@@ -79,12 +79,12 @@ pub fn hash_i32(key: i32) -> i32 {
 
 #[inline]
 pub fn min_f32(x1: f32, x2: f32) -> f32 {
-    if !(x1 < x2) { x2 } else { x1 }
+    if x1 >= x2 { x2 } else { x1 }
 }
 
 #[inline]
 pub fn max_f32(x1: f32, x2: f32) -> f32 {
-    if !(x1 > x2) { x2 } else { x1 }
+    if x1 <= x2 { x2 } else { x1 }
 }
 
 #[inline]
@@ -109,19 +109,23 @@ pub fn max_f32_4(x1: f32, x2: f32, x3: f32, x4: f32) -> f32 {
 
 #[inline]
 pub fn clamp_f32(x: f32, min: f32, max: f32) -> f32 {
-    if !(x < min) {
-        if !(x > max) { x } else { max }
-    } else {
+    if x < min {
         min
+    } else if x > max {
+        max
+    } else {
+        x
     }
 }
 
 #[inline]
 pub fn saturate(x: f32) -> f32 {
-    if !(x < 0.0) {
-        if !(x > 1.0) { x } else { 1.0 }
-    } else {
+    if x < 0.0 {
         0.0
+    } else if x > 1.0 {
+        1.0
+    } else {
+        x
     }
 }
 

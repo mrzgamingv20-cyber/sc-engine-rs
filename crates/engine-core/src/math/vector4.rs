@@ -138,7 +138,7 @@ impl Vector4 {
 
     pub fn normalize(v: Vector4) -> Vector4 {
         let len = v.length();
-        if !(len > 0.0) {
+        if len <= 0.0 {
             Vector4::UNIT_X
         } else {
             v / len
