@@ -1,0 +1,12 @@
+[package]
+name = "engine-core"
+description = "Survivalcraft Engine core math and utilities (Rust port)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "engine_core"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
