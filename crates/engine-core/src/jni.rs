@@ -19,7 +19,7 @@ pub extern "system" fn Java_com_scengine_core_EngineBridge_nativeInit(
 
 #[no_mangle]
 pub extern "system" fn Java_com_scengine_core_EngineBridge_nativeGetVersion(
-    mut env: JNIEnv,
+    env: JNIEnv,
     _class: JClass,
 ) -> jstring {
     env.new_string("0.1.0-rust")
@@ -47,7 +47,7 @@ pub extern "system" fn Java_com_scengine_core_EngineBridge_nativeLog(
 ) {
     let msg: String = env
         .get_string(&message)
-        .map(|s| s.to_string())
+        .map(|s| String::from(&*s))
         .unwrap_or_default();
     crate::log::write(crate::log::LogType::Information, &msg);
 }
