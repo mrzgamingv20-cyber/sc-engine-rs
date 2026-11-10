@@ -1,0 +1,23 @@
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[repr(i32)]
+pub enum GamePadButton {
+    Null = -1,
+    A = 0,
+    B = 1,
+    X = 2,
+    Y = 3,
+    Back = 4,
+    Start = 5,
+    LeftThumb = 6,
+    RightThumb = 7,
+    LeftShoulder = 8,
+    RightShoulder = 9,
+    DPadLeft = 10,
+    DPadUp = 11,
+    DPadRight = 12,
+    DPadDown = 13,
+}
+
+impl GamePadButton {
+    pub const COUNT: usize = 14;
+}

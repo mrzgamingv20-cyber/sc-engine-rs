@@ -10,6 +10,8 @@ pub mod window;
 pub mod utilities;
 pub mod open_file_mode;
 pub mod window_mode;
+pub mod input;
+pub mod audio;
 
 #[cfg(target_os = "android")]
 pub mod jni;
@@ -24,3 +26,5 @@ pub use window::*;
 pub use utilities::*;
 pub use open_file_mode::*;
 pub use window_mode::*;
+pub use input::*;
+pub use audio::*;
