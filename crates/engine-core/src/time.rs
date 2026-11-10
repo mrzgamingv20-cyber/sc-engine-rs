@@ -1,19 +1,14 @@
+use std::sync::OnceLock;
 use std::time::{Instant, Duration};
 
-static mut START_TIME: Option<Instant> = None;
+static START_TIME: OnceLock<Instant> = OnceLock::new();
 
 pub fn init() {
-    unsafe {
-        if START_TIME.is_none() {
-            START_TIME = Some(Instant::now());
-        }
-    }
+    START_TIME.get_or_init(|| Instant::now());
 }
 
 pub fn total_time() -> Duration {
-    unsafe {
-        START_TIME.map(|t| t.elapsed()).unwrap_or_default()
-    }
+    START_TIME.get().map(|t| t.elapsed()).unwrap_or_default()
 }
 
 pub fn total_seconds() -> f64 {

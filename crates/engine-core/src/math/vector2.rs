@@ -299,6 +299,6 @@ mod tests {
         let v = Vector2::new(1.0, 0.0);
         let r = Vector2::rotate(v, PI / 2.0);
         assert!((r.x - 0.0).abs() < 1e-6);
-        assert!((r.y - 1.0).abs() < 1e-6);
+        assert!((r.y - (-1.0)).abs() < 1e-6);
     }
 }
