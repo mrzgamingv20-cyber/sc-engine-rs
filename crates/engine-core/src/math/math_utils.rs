@@ -120,13 +120,7 @@ pub fn clamp_f32(x: f32, min: f32, max: f32) -> f32 {
 
 #[inline]
 pub fn saturate(x: f32) -> f32 {
-    if x < 0.0 {
-        0.0
-    } else if x > 1.0 {
-        1.0
-    } else {
-        x
-    }
+    x.clamp(0.0, 1.0)
 }
 
 #[inline]
