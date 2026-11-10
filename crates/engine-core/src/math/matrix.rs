@@ -4,7 +4,7 @@ use super::quaternion::Quaternion;
 
 /// 4x4 matrix, column-major storage matching the C# Engine layout.
 /// Memory layout: M11,M12,M13,M14, M21,M22,M23,M24, M31,M32,M33,M34, M41,M42,M43,M44
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Default)]
 pub struct Matrix {
     pub m11: f32, pub m12: f32, pub m13: f32, pub m14: f32,
     pub m21: f32, pub m22: f32, pub m23: f32, pub m24: f32,

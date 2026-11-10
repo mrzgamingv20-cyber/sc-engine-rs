@@ -175,11 +175,12 @@ pub fn catmull_rom(v1: f32, v2: f32, v3: f32, v4: f32, f: f32) -> f32 {
 
 #[inline]
 pub fn normalize_angle(angle: f32) -> f32 {
-    let mut angle = (angle as f64 / (std::f64::consts::PI * 2.0)).fract() * (std::f64::consts::PI * 2.0) as f32;
+    let two_pi = PI * 2.0;
+    let mut angle = (angle / two_pi).fract() * two_pi;
     if angle > PI {
-        angle -= PI * 2.0;
+        angle -= two_pi;
     } else if angle <= -PI {
-        angle += PI * 2.0;
+        angle += two_pi;
     }
     angle
 }

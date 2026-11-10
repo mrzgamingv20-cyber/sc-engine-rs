@@ -1,6 +1,6 @@
 use super::math_utils::*;
 
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Default)]
 pub struct Vector2 {
     pub x: f32,
     pub y: f32,
@@ -34,7 +34,7 @@ impl Vector2 {
 
     #[inline]
     pub fn distance(v1: Vector2, v2: Vector2) -> f32 {
-        distance_squared(v1, v2).sqrt()
+        Vector2::distance_squared(v1, v2).sqrt()
     }
 
     #[inline]

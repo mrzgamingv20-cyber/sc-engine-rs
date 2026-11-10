@@ -2,7 +2,7 @@ use super::math_utils::*;
 use super::vector3::Vector3;
 use super::matrix::Matrix;
 
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Default)]
 pub struct Quaternion {
     pub x: f32,
     pub y: f32,
