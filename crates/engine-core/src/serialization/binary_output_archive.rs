@@ -1,11 +1,12 @@
 use std::collections::HashMap;
-use std::io::{self, Write};
+use std::io::{self};
 use super::archive::OutputArchive;
 use super::binary_writer::EngineBinaryWriter;
 
 pub struct BinaryOutputArchive<W: Write> {
     writer: EngineBinaryWriter<W>,
     string_ids: HashMap<String, i32>,
+    #[allow(dead_code)]
     next_object_id: i32,
     use_7bit_ints: bool,
     version: i32,

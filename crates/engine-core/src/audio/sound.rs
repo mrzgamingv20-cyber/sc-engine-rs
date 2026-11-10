@@ -1,8 +1,6 @@
-use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
 use super::base_sound::BaseSound;
 use super::sound_buffer::SoundBuffer;
-use super::sound_state::SoundState;
 use crate::math::vector3::Vector3;
 
 pub struct Sound {

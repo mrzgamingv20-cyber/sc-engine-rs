@@ -1,4 +1,4 @@
-use std::io::{self, Read, Write};
+use std::io::{self, Read};
 
 pub struct EngineBinaryReader<R: Read> {
     reader: R,

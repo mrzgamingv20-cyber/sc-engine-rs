@@ -1,5 +1,4 @@
 use std::sync::atomic::{AtomicI32, AtomicUsize, Ordering};
-use super::sound_state::SoundState;
 
 pub struct SoundBuffer {
     pub(crate) buffer: AtomicI32,

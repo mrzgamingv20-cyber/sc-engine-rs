@@ -3,8 +3,6 @@ pub struct DynamicArray<T> {
 }
 
 impl<T: Clone + Default> DynamicArray<T> {
-    const MIN_CAPACITY: usize = 4;
-
     pub fn new() -> Self {
         DynamicArray { array: Vec::new() }
     }

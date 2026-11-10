@@ -58,7 +58,7 @@ impl Random {
     }
 
     pub fn uint(&mut self) -> u32 {
-        let mut s = self.s0;
+        let s = self.s0;
         let mut s2 = self.s1;
         s2 ^= s;
         self.s0 = s.rotate_left(26) ^ s2 ^ (s2 << 9);

@@ -47,7 +47,7 @@ impl GamePad {
     }
 
     pub fn get_stick_position(index: usize, stick: GamePadStick, dead_zone: f32) -> Vector2 {
-        assert!(dead_zone >= 0.0 && dead_zone < 1.0, "deadZone out of range");
+        assert!((0.0..1.0).contains(&dead_zone), "deadZone out of range");
         if Self::is_connected(index) {
             let result = STATES.lock().unwrap()[index].sticks[stick as usize];
             if dead_zone > 0.0 {
@@ -63,7 +63,7 @@ impl GamePad {
     }
 
     pub fn get_trigger_position(index: usize, trigger: GamePadTrigger, dead_zone: f32) -> f32 {
-        assert!(dead_zone >= 0.0 && dead_zone < 1.0, "deadZone out of range");
+        assert!((0.0..1.0).contains(&dead_zone), "deadZone out of range");
         if Self::is_connected(index) {
             Self::apply_dead_zone(STATES.lock().unwrap()[index].triggers[trigger as usize], dead_zone)
         } else {
@@ -72,7 +72,7 @@ impl GamePad {
     }
 
     pub fn is_trigger_down(index: usize, trigger: GamePadTrigger, dead_zone: f32, threshold: f32) -> bool {
-        assert!(dead_zone >= 0.0 && dead_zone < 1.0, "deadZone out of range");
+        assert!((0.0..1.0).contains(&dead_zone), "deadZone out of range");
         if !Self::is_connected(index) {
             return false;
         }

@@ -1,7 +1,5 @@
 use std::sync::Mutex;
 use super::mouse_button::MouseButton;
-use super::mouse_event::MouseEvent;
-use super::mouse_button_event::MouseButtonEvent;
 use crate::math::point2::Point2;
 
 pub struct Mouse;

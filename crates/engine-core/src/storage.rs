@@ -1,6 +1,5 @@
 use std::path::{Path, PathBuf};
 use std::fs;
-use crate::log;
 
 /// Storage path prefixes
 pub const APP_PREFIX: &str = "app:";
