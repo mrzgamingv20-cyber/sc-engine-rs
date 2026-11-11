@@ -13,9 +13,7 @@ pub mod window_mode;
 pub mod input;
 pub mod audio;
 pub mod serialization;
-
-#[cfg(target_os = "android")]
-pub mod jni;
+pub mod graphics;
 
 pub use math::*;
 pub use random::*;
@@ -30,3 +28,4 @@ pub use window_mode::*;
 pub use input::*;
 pub use audio::*;
 pub use serialization::*;
+pub use graphics::*;

@@ -1,0 +1,13 @@
+[package]
+name = "engine-app"
+description = "Android application crate: C ABI entry points and native FFI"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "engine_app"
+crate-type = ["cdylib"]
+
+[dependencies]
+engine-game = { path = "../engine-game" }
