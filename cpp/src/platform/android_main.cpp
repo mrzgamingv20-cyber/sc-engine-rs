@@ -104,7 +104,16 @@ int32_t handleInputEvent(android_app* app, AInputEvent* event) {
 } // namespace
 
 void android_main(android_app* app) {
+#if defined(__clang__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#endif
+    // Keep the native_app_glue object (and thus ANativeActivity_onCreate) in the
+    // final .so. Deprecated in r27 but still the cheapest way to force that.
     app_dummy();
+#if defined(__clang__)
+#pragma clang diagnostic pop
+#endif
 
     app->onAppCmd = handleAppCmd;
     app->onInputEvent = handleInputEvent;
@@ -113,9 +122,14 @@ void android_main(android_app* app) {
     auto previous = clock::now();
 
     while (true) {
+        // Drain all pending events without blocking (ALooper_pollAll was removed
+        // from the NDK headers in r27; pollOnce with a 0 timeout is the
+        // non-blocking equivalent).
+        int ident = 0;
         int events = 0;
         android_poll_source* source = nullptr;
-        while (ALooper_pollAll(0, nullptr, &events, reinterpret_cast<void**>(&source)) >= 0) {
+        while ((ident = ALooper_pollOnce(0, nullptr, &events,
+                                         reinterpret_cast<void**>(&source)) >= 0)) {
             if (source != nullptr) {
                 source->process(source->app, source);
             }
