@@ -36,4 +36,11 @@ target_include_directories(sc_render PUBLIC
 
 if(ANDROID)
     target_link_libraries(sc_render PUBLIC log android EGL GLESv3)
+
+    # The NDK glue defines ANativeActivity_onCreate. Rust hides symbols that
+    # come from static libraries (--exclude-libs), so the real entry point is
+    # exported from the Rust cdylib instead (see crates/engine-app). Rename the
+    # glue's copy so the two do not collide.
+    target_compile_definitions(sc_render PRIVATE
+        ANativeActivity_onCreate=sc_glue_on_create)
 endif()
