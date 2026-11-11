@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use std::io::{self, Read, Write};
+use std::io::{self, Write};
 use super::archive::OutputArchive;
 use super::binary_writer::EngineBinaryWriter;
 
