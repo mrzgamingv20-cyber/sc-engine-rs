@@ -107,7 +107,7 @@ impl BlocksManager {
 
             // Process each field
             for j in 1..array.len() {
-                let field_name = first_line[j];
+                let _field_name = first_line[j];
                 let data = array[j];
                 if !data.is_empty() {
                     if data.starts_with('#') {

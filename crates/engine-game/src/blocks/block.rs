@@ -59,13 +59,13 @@ pub trait Block: Send + Sync + std::fmt::Debug {
     /// Friction factor.
     fn friction_factor(&self) -> f32;
     /// Is collidable at value.
-    fn is_collidable_at(&self, value: i32) -> bool { self.is_collidable() }
+    fn is_collidable_at(&self, _value: i32) -> bool { self.is_collidable() }
     /// Is transparent at value.
-    fn is_transparent_at(&self, value: i32) -> bool { self.is_transparent() }
+    fn is_transparent_at(&self, _value: i32) -> bool { self.is_transparent() }
     /// Get texture slot for face.
-    fn get_face_texture_slot(&self, face: i32, value: i32) -> i32 { self.default_texture_slot() }
+    fn get_face_texture_slot(&self, _face: i32, _value: i32) -> i32 { self.default_texture_slot() }
     /// Get texture slot count.
-    fn get_texture_slot_count(&self, value: i32) -> i32 { 16 }
+    fn get_texture_slot_count(&self, _value: i32) -> i32 { 16 }
     /// Get creative values.
     fn get_creative_values(&self) -> Vec<i32> { Vec::new() }
     /// Generate faces for same neighbors.
@@ -107,6 +107,7 @@ pub enum FoodType {
 
 /// Block data for CSV loading.
 #[derive(Debug)]
+#[allow(clippy::new_without_default)]
 pub struct BlockAllocateData {
     pub block: Box<dyn Block>,
     pub index: i32,
@@ -186,6 +187,7 @@ impl Default for BlocksManager {
 }
 /// Air block - empty/non-solid.
 #[derive(Debug)]
+#[allow(clippy::new_without_default)]
 pub struct AirBlock {
     pub block_index: i32,
 }
@@ -235,6 +237,7 @@ impl Block for AirBlock {
 
 /// Dirt block - basic solid cube.
 #[derive(Debug)]
+#[allow(clippy::new_without_default)]
 pub struct DirtBlock {
     pub block_index: i32,
 }
@@ -283,6 +286,7 @@ impl Block for DirtBlock {
 
 /// Sand block - basic solid cube.
 #[derive(Debug)]
+#[allow(clippy::new_without_default)]
 pub struct SandBlock {
     pub block_index: i32,
 }
@@ -330,6 +334,7 @@ impl Block for SandBlock {
 
 /// Basalt block - basic solid cube.
 #[derive(Debug)]
+#[allow(clippy::new_without_default)]
 pub struct BasaltBlock {
     pub block_index: i32,
 }
@@ -377,6 +382,7 @@ impl Block for BasaltBlock {
 
 /// Leaves block - transparent, non-collidable.
 #[derive(Debug)]
+#[allow(clippy::new_without_default)]
 pub struct LeavesBlock {
     pub block_index: i32,
 }
@@ -425,6 +431,7 @@ impl Block for LeavesBlock {
 
 /// Water block - fluid, non-collidable.
 #[derive(Debug)]
+#[allow(clippy::new_without_default)]
 pub struct WaterBlock {
     pub block_index: i32,
 }
@@ -473,6 +480,7 @@ impl Block for WaterBlock {
 
 /// Grass block - top soil with grass color.
 #[derive(Debug)]
+#[allow(clippy::new_without_default)]
 pub struct GrassBlock {
     pub block_index: i32,
 }
