@@ -1,5 +1,5 @@
 /// Block trait - core properties used by generator and mesher.
-pub trait Block: Send + Sync {
+pub trait Block: Send + Sync + std::fmt::Debug {
     /// Block index (id = index in registry).
     fn block_index(&self) -> i32;
     /// Set block index.
@@ -106,7 +106,7 @@ pub enum FoodType {
 }
 
 /// Block data for CSV loading.
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct BlockAllocateData {
     pub block: Box<dyn Block>,
     pub index: i32,
