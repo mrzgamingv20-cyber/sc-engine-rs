@@ -231,6 +231,12 @@ pub struct GameDatabase {
     pub member_component_template_type: String,
 }
 
+impl Default for GameDatabase {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl GameDatabase {
     pub fn new() -> Self {
         GameDatabase {
