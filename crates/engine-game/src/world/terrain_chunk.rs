@@ -191,6 +191,8 @@ impl TerrainChunk {
 
 /// Brush paint for terrain modifications.
 #[derive(Debug, Clone)]
+/// Terrain brush paint.
+#[derive(Debug, Clone)]
 pub struct BrushPaint {
     pub position: Point3,
     pub brush: TerrainBrush,
@@ -202,27 +204,4 @@ pub struct TerrainBrush;
 
 impl TerrainBrush {
     pub fn paint_fast(&self, _chunk: &mut TerrainChunk, _x: i32, _y: i32, _z: i32) {}
-}
-
-/// Terrain chunk state.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[repr(i32)]
-pub enum TerrainChunkState {
-    NotLoaded = 0,
-    InvalidContents1 = 1,
-    InvalidContents2 = 2,
-    InvalidContents3 = 3,
-    InvalidContents4 = 4,
-    InvalidLight = 5,
-    InvalidPropagatedLight = 6,
-    InvalidVertices1 = 7,
-    InvalidVertices2 = 8,
-    Valid = 9,
-}
-
-/// Terrain brush paint.
-#[derive(Debug, Clone)]
-pub struct BrushPaint {
-    pub position: Point3,
-    pub brush: TerrainBrush,
 }
