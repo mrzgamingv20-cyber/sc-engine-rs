@@ -1,3 +1,6 @@
+use super::block::{Block, BlockDigMethod};
+use super::block::FoodType;
+
 /// Dirt block - basic solid cube.
 pub struct DirtBlock {
     pub block_index: i32,

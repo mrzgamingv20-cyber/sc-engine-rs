@@ -1,3 +1,4 @@
+use super::block::{Block, BlockDigMethod};
 /// Air block - empty/non-solid.
 pub struct AirBlock {
     pub block_index: i32,
