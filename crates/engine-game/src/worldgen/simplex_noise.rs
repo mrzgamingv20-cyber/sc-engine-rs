@@ -168,3 +168,4 @@ impl SimplexNoise {
             1.0 - (2.0 * num / num2 - 1.0).abs()
         }
     }
+}
