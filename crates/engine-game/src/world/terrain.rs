@@ -34,6 +34,12 @@ impl ChunksStorage {
             capacity: Self::CAPACITY,
         }
     }
+}
+
+impl Default for ChunksStorage {
+    fn default() -> Self {
+        Self::new()
+    }
 
     /// Get chunk at coordinates.
     pub fn get(&self, x: i32, y: i32) -> Option<&TerrainChunk> {
@@ -114,6 +120,12 @@ impl Terrain {
             season_humidity: 0,
         }
     }
+}
+
+impl Default for Terrain {
+    fn default() -> Self {
+        Self::new()
+    }
 
     /// Get chunk at coordinates.
     pub fn get_chunk_at_coords(&self, chunk_x: i32, chunk_z: i32) -> Option<&TerrainChunk> {
@@ -140,7 +152,7 @@ impl Terrain {
         if self.get_chunk_at_coords(chunk_x, chunk_z).is_some() {
             panic!("Chunk already allocated.");
         }
-        let mut chunk = TerrainChunk::new(TerrainId(0), chunk_x, chunk_z);
+        let chunk = TerrainChunk::new(TerrainId(0), chunk_x, chunk_z);
         self.allocated_chunks.push(chunk);
         // Return a mutable reference to the last pushed chunk
         // Note: this is a simplified version
@@ -176,7 +188,7 @@ impl Terrain {
     }
 
     /// Check if a cell is valid.
-    pub fn is_cell_valid(x: i32, y: i32, z: i32) -> bool {
+    pub fn is_cell_valid(_x: i32, y: i32, _z: i32) -> bool {
         y >= 0 && y < CHUNK_HEIGHT as i32
     }
 
@@ -262,7 +274,7 @@ impl Terrain {
 
     /// Extract sunlight height from shaft value.
     pub fn extract_sunlight_height(value: i32) -> i32 {
-        ((value & SUNLIGHT_HEIGHT_MASK as i32) as u32 >> SUNLIGHT_HEIGHT_SHIFT) as i32
+        ((value & SUNLIGHT_HEIGHT_MASK) as u32 >> SUNLIGHT_HEIGHT_SHIFT) as i32
     }
 
     /// Extract humidity from shaft value.

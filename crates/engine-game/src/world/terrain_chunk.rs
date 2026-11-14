@@ -1,5 +1,5 @@
 // Use types from the parent terrain module
-use super::terrain::{Point2, Point3, Vector2, Vector3, BoundingBox, TerrainId, TerrainBrush, TerrainChunkGeometry, TerrainGeometry};
+use super::terrain::{Point2, Point3, Vector2, Vector3, BoundingBox, TerrainId, TerrainBrush, TerrainChunkGeometry};
 
 // Terrain chunk constants.
 pub const CHUNK_SIZE_BITS: u8 = 4;
@@ -155,11 +155,11 @@ impl TerrainChunk {
             return y | (x << CHUNK_HEIGHT_BITS) | (z << 12);
         }
         let abs_y = y.abs();
-        let y_upper_bits = (abs_y >> CHUNK_HEIGHT_BITS) as i32;
+        let y_upper_bits = abs_y >> CHUNK_HEIGHT_BITS;
         if y_upper_bits > 0x7FFF {
             panic!("Height is too large.");
         }
-        let y_lower_8_bits = (abs_y & 0xFF) as i32;
+        let y_lower_8_bits = abs_y & 0xFF;
         let y_upper_bits = y_upper_bits & 0x7FFF;
         ((if y < 0 { 1 } else { 0 }) << 31) | (y_upper_bits << 16) | (z << 12) | (x << CHUNK_HEIGHT_BITS) | y_lower_8_bits
     }
