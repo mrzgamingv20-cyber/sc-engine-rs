@@ -185,6 +185,7 @@ impl Default for BlocksManager {
     }
 }
 /// Air block - empty/non-solid.
+#[derive(Debug)]
 pub struct AirBlock {
     pub block_index: i32,
 }
@@ -233,6 +234,7 @@ impl Block for AirBlock {
 }
 
 /// Dirt block - basic solid cube.
+#[derive(Debug)]
 pub struct DirtBlock {
     pub block_index: i32,
 }
@@ -280,6 +282,7 @@ impl Block for DirtBlock {
 }
 
 /// Sand block - basic solid cube.
+#[derive(Debug)]
 pub struct SandBlock {
     pub block_index: i32,
 }
@@ -326,6 +329,7 @@ impl Block for SandBlock {
 }
 
 /// Basalt block - basic solid cube.
+#[derive(Debug)]
 pub struct BasaltBlock {
     pub block_index: i32,
 }
@@ -372,6 +376,7 @@ impl Block for BasaltBlock {
 }
 
 /// Leaves block - transparent, non-collidable.
+#[derive(Debug)]
 pub struct LeavesBlock {
     pub block_index: i32,
 }
@@ -419,6 +424,7 @@ impl Block for LeavesBlock {
 }
 
 /// Water block - fluid, non-collidable.
+#[derive(Debug)]
 pub struct WaterBlock {
     pub block_index: i32,
 }
@@ -466,6 +472,7 @@ impl Block for WaterBlock {
 }
 
 /// Grass block - top soil with grass color.
+#[derive(Debug)]
 pub struct GrassBlock {
     pub block_index: i32,
 }

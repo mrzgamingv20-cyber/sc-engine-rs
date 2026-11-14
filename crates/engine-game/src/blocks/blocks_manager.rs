@@ -17,8 +17,8 @@ impl BlocksManager {
 
     pub fn new() -> Self {
         BlocksManager {
-            blocks: vec![None; Self::BLOCK_COUNT],
-            fluid_blocks: vec![None; Self::BLOCK_COUNT],
+            blocks: (0..Self::BLOCK_COUNT).map(|_| None).collect(),
+            fluid_blocks: (0..Self::BLOCK_COUNT).map(|_| None).collect(),
             categories: Vec::new(),
             block_name_to_index: HashMap::new(),
             block_type_to_index: HashMap::new(),
