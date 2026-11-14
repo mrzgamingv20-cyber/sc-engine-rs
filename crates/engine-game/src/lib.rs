@@ -11,9 +11,11 @@ pub mod entity;
 pub mod game;
 pub mod subsystem;
 pub mod world;
+pub mod entity_system;
 
 pub use block::{Block, BlockId};
 pub use entity::EntityId;
 pub use game::Game;
 pub use subsystem::Subsystem;
 pub use world::{ChunkPos, World};
+pub use entity_system::*;
