@@ -1,3 +1,6 @@
+#![allow(clippy::excessive_precision)]
+#![allow(clippy::unnecessary_cast)]
+
 /// SimplexNoise - ported from Survivalcraft's SimplexNoise.cs.
 /// All constants and algorithms are taken directly from the C# source.
 pub struct SimplexNoise;
@@ -104,7 +107,7 @@ impl SimplexNoise {
     }
 
     /// 3D noise.
-    pub fn noise3d(x: f32, y: f32, z: f32) -> f32 {
+    pub fn noise3d(_x: f32, _y: f32, _z: f32) -> f32 {
         // ... (full implementation from C#)
         // This is a very long function; I'll implement the key parts
         // For now, return a placeholder
