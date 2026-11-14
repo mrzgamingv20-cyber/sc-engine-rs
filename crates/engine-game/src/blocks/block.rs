@@ -198,7 +198,7 @@ impl AirBlock {
     }
 }
 
-impl super::block::Block for AirBlock {
+impl Block for AirBlock {
     fn block_index(&self) -> i32 { self.block_index }
     fn set_block_index(&mut self, index: i32) { self.block_index = index; }
     fn default_display_name(&self) -> &str { "Air" }
@@ -223,7 +223,7 @@ impl super::block::Block for AirBlock {
     fn melee_power(&self) -> f32 { 0.0 }
     fn melee_hit_probability(&self) -> f32 { 0.0 }
     fn projectile_power(&self) -> f32 { 0.0 }
-    fn dig_method(&self) -> super::block::BlockDigMethod { super::block::BlockDigMethod::Drill }
+    fn dig_method(&self) -> BlockDigMethod { BlockDigMethod::Drill }
     fn dig_resilience(&self) -> f32 { 0.0 }
     fn max_stacking(&self) -> i32 { 0 }
     fn sleep_suitability(&self) -> f32 { 0.0 }
@@ -245,7 +245,7 @@ impl DirtBlock {
     }
 }
 
-impl super::block::Block for DirtBlock {
+impl Block for DirtBlock {
     fn block_index(&self) -> i32 { self.block_index }
     fn set_block_index(&mut self, index: i32) { self.block_index = index; }
     fn default_display_name(&self) -> &str { "Dirt" }
@@ -270,7 +270,7 @@ impl super::block::Block for DirtBlock {
     fn melee_power(&self) -> f32 { 1.0 }
     fn melee_hit_probability(&self) -> f32 { 0.66 }
     fn projectile_power(&self) -> f32 { 1.0 }
-    fn dig_method(&self) -> super::block::BlockDigMethod { super::block::BlockDigMethod::Shovel }
+    fn dig_method(&self) -> BlockDigMethod { BlockDigMethod::Shovel }
     fn dig_resilience(&self) -> f32 { 1.0 }
     fn max_stacking(&self) -> i32 { 40 }
     fn sleep_suitability(&self) -> f32 { 0.0 }
@@ -292,7 +292,7 @@ impl SandBlock {
     }
 }
 
-impl super::block::Block for SandBlock {
+impl Block for SandBlock {
     fn block_index(&self) -> i32 { self.block_index }
     fn set_block_index(&mut self, index: i32) { self.block_index = index; }
     fn default_display_name(&self) -> &str { "Sand" }
@@ -317,7 +317,7 @@ impl super::block::Block for SandBlock {
     fn melee_power(&self) -> f32 { 1.0 }
     fn melee_hit_probability(&self) -> f32 { 0.66 }
     fn projectile_power(&self) -> f32 { 1.0 }
-    fn dig_method(&self) -> super::block::BlockDigMethod { super::block::BlockDigMethod::Shovel }
+    fn dig_method(&self) -> BlockDigMethod { BlockDigMethod::Shovel }
     fn dig_resilience(&self) -> f32 { 1.0 }
     fn max_stacking(&self) -> i32 { 40 }
     fn sleep_suitability(&self) -> f32 { 0.0 }
@@ -338,7 +338,7 @@ impl BasaltBlock {
     }
 }
 
-impl super::block::Block for BasaltBlock {
+impl Block for BasaltBlock {
     fn block_index(&self) -> i32 { self.block_index }
     fn set_block_index(&mut self, index: i32) { self.block_index = index; }
     fn default_display_name(&self) -> &str { "Basalt" }
@@ -363,7 +363,7 @@ impl super::block::Block for BasaltBlock {
     fn melee_power(&self) -> f32 { 1.0 }
     fn melee_hit_probability(&self) -> f32 { 0.66 }
     fn projectile_power(&self) -> f32 { 1.0 }
-    fn dig_method(&self) -> super::block::BlockDigMethod { super::block::BlockDigMethod::Quarry }
+    fn dig_method(&self) -> BlockDigMethod { BlockDigMethod::Quarry }
     fn dig_resilience(&self) -> f32 { 1.0 }
     fn max_stacking(&self) -> i32 { 40 }
     fn sleep_suitability(&self) -> f32 { 0.0 }
@@ -384,7 +384,7 @@ impl LeavesBlock {
     }
 }
 
-impl super::block::Block for LeavesBlock {
+impl Block for LeavesBlock {
     fn block_index(&self) -> i32 { self.block_index }
     fn set_block_index(&mut self, index: i32) { self.block_index = index; }
     fn default_display_name(&self) -> &str { "Leaves" }
@@ -409,7 +409,7 @@ impl super::block::Block for LeavesBlock {
     fn melee_power(&self) -> f32 { 1.0 }
     fn melee_hit_probability(&self) -> f32 { 0.66 }
     fn projectile_power(&self) -> f32 { 1.0 }
-    fn dig_method(&self) -> super::block::BlockDigMethod { super::block::BlockDigMethod::Hack }
+    fn dig_method(&self) -> BlockDigMethod { BlockDigMethod::Hack }
     fn dig_resilience(&self) -> f32 { 1.0 }
     fn max_stacking(&self) -> i32 { 40 }
     fn sleep_suitability(&self) -> f32 { 0.0 }
@@ -431,7 +431,7 @@ impl WaterBlock {
     }
 }
 
-impl super::block::Block for WaterBlock {
+impl Block for WaterBlock {
     fn block_index(&self) -> i32 { self.block_index }
     fn set_block_index(&mut self, index: i32) { self.block_index = index; }
     fn default_display_name(&self) -> &str { "Water" }
@@ -456,7 +456,7 @@ impl super::block::Block for WaterBlock {
     fn melee_power(&self) -> f32 { 0.0 }
     fn melee_hit_probability(&self) -> f32 { 0.0 }
     fn projectile_power(&self) -> f32 { 0.0 }
-    fn dig_method(&self) -> super::block::BlockDigMethod { super::block::BlockDigMethod::Drill }
+    fn dig_method(&self) -> BlockDigMethod { BlockDigMethod::Drill }
     fn dig_resilience(&self) -> f32 { 0.0 }
     fn max_stacking(&self) -> i32 { 0 }
     fn sleep_suitability(&self) -> f32 { 0.0 }
@@ -478,7 +478,7 @@ impl GrassBlock {
     }
 }
 
-impl super::block::Block for GrassBlock {
+impl Block for GrassBlock {
     fn block_index(&self) -> i32 { self.block_index }
     fn set_block_index(&mut self, index: i32) { self.block_index = index; }
     fn default_display_name(&self) -> &str { "Grass" }
@@ -503,7 +503,7 @@ impl super::block::Block for GrassBlock {
     fn melee_power(&self) -> f32 { 1.0 }
     fn melee_hit_probability(&self) -> f32 { 0.66 }
     fn projectile_power(&self) -> f32 { 1.0 }
-    fn dig_method(&self) -> super::block::BlockDigMethod { super::block::BlockDigMethod::Shovel }
+    fn dig_method(&self) -> BlockDigMethod { BlockDigMethod::Shovel }
     fn dig_resilience(&self) -> f32 { 1.0 }
     fn max_stacking(&self) -> i32 { 40 }
     fn sleep_suitability(&self) -> f32 { 0.0 }
