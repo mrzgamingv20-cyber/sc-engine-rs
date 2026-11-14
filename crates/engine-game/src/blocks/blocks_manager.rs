@@ -62,8 +62,8 @@ impl BlocksManager {
 
     /// Parse CSV blocks data string.
     pub fn load_blocks_data(&mut self, blocks_data_string: &str) -> Result<(), String> {
-        let lines: Vec<&str> = blocks_data_string
-            .replace("\r", "")
+        let cleaned = blocks_data_string.replace("\r", "");
+        let lines: Vec<&str> = cleaned
             .split('\n')
             .filter(|s| !s.is_empty())
             .collect();
