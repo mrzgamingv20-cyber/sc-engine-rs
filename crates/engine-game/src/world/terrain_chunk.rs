@@ -41,11 +41,6 @@ pub enum TerrainChunkState {
     Valid = 9,
 }
 
-/// Terrain chunk geometry buffer.
-#[derive(Debug, Clone, Default)]
-pub struct TerrainChunkGeometry {
-    // Placeholder for geometry data
-}
 
 /// Terrain chunk.
 pub struct TerrainChunk {
@@ -196,12 +191,3 @@ impl TerrainChunk {
 pub struct BrushPaint {
     pub position: Point3,
     pub brush: TerrainBrush,
-}
-
-/// Terrain brush placeholder.
-#[derive(Debug, Clone)]
-pub struct TerrainBrush;
-
-impl TerrainBrush {
-    pub fn paint_fast(&self, _chunk: &mut TerrainChunk, _x: i32, _y: i32, _z: i32) {}
-}
