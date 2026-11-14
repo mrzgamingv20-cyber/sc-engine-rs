@@ -68,8 +68,8 @@ pub trait Block: Send + Sync {
     fn get_texture_slot_count(&self, value: i32) -> i32 { 16 }
     /// Get creative values.
     fn get_creative_values(&self) -> Vec<i32> { Vec::new() }
-    /// Generate faces for same neighbors.
-    fn generate_faces_for_same_neighbors(&self) -> bool { false }
+    /// Is suitable for plants.
+    fn is_suitable_for_plants(&self, _value: i32, _plant_value: i32) -> bool { false }
     /// Get food type.
     fn food_type(&self) -> FoodType { FoodType::None }
     /// Get sound material name.

@@ -12,7 +12,7 @@ impl AirBlock {
     }
 }
 
-impl Block for AirBlock {
+impl super::block::Block for AirBlock {
     fn block_index(&self) -> i32 { self.block_index }
     fn set_block_index(&mut self, index: i32) { self.block_index = index; }
     fn default_display_name(&self) -> &str { "Air" }
@@ -37,7 +37,7 @@ impl Block for AirBlock {
     fn melee_power(&self) -> f32 { 0.0 }
     fn melee_hit_probability(&self) -> f32 { 0.0 }
     fn projectile_power(&self) -> f32 { 0.0 }
-    fn dig_method(&self) -> BlockDigMethod { BlockDigMethod::Drill }
+    fn dig_method(&self) -> super::block::BlockDigMethod { super::block::BlockDigMethod::Drill }
     fn dig_resilience(&self) -> f32 { 0.0 }
     fn max_stacking(&self) -> i32 { 0 }
     fn sleep_suitability(&self) -> f32 { 0.0 }
