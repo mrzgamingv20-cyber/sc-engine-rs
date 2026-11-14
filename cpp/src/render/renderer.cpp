@@ -93,6 +93,26 @@ void Renderer::beginFrame(float r, float g, float b, float a) {
     }
     glClearColor(r, g, b, a);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    // Draw a simple triangle
+    static bool triangle_init = false;
+    if (!triangle_init) {
+        glGenBuffers(1, &triangle_vbo_);
+        float vertices[] = {
+            0.0f, 0.5f, 0.0f,   // top
+            -0.5f, -0.5f, 0.0f, // bottom left
+            0.5f, -0.5f, 0.0f   // bottom right
+        };
+        glGenBuffers(1, &triangle_vbo_);
+        glBindBuffer(GL_ARRAY_BUFFER, triangle_vbo_);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+        triangle_init = true;
+    }
+    glBindBuffer(GL_ARRAY_BUFFER, triangle_vbo_);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDisableVertexAttribArray(0);
 }
 
 void Renderer::endFrame() {
