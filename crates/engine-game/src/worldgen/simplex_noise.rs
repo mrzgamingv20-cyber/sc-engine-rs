@@ -94,9 +94,9 @@ impl SimplexNoise {
         let num14 = num8 - 1.0 + 0.422649741;
         let num15 = (num2 & 0xFF) as usize;
         let num16 = (num3 & 0xFF) as usize;
-        let num17 = (Self::M_PERMUTATIONS[num15 + Self::M_PERMUTATIONS[num16]] as usize) % 12;
-        let num18 = (Self::M_PERMUTATIONS[num15 + num9 as usize + Self::M_PERMUTATIONS[num16 + num10 as usize]] as usize) % 12;
-        let num19 = (Self::M_PERMUTATIONS[num15 + 1 + Self::M_PERMUTATIONS[num16 + 1]] as usize) % 12;
+        let num17 = (Self::M_PERMUTATIONS[num15 + (Self::M_PERMUTATIONS[num16] as usize)] as usize) % 12;
+        let num18 = (Self::M_PERMUTATIONS[num15 + (num9 as usize) + (Self::M_PERMUTATIONS[num16 + (num10 as usize)] as usize)] as usize) % 12;
+        let num19 = (Self::M_PERMUTATIONS[num15 + 1 + (Self::M_PERMUTATIONS[num16 + 1] as usize)] as usize) % 12;
         let mut num20 = 0.5 - num7 * num7 - num8 * num8;
         let num21 = if num20 < 0.0 {
             0.0
