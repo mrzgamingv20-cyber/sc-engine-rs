@@ -1,5 +1,3 @@
-use crate::engine_core_reexports::*;
-
 /// Block trait - core properties used by generator and mesher.
 pub trait Block: Send + Sync {
     /// Block index (id = index in registry).
