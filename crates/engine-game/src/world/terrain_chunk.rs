@@ -43,6 +43,7 @@ pub enum TerrainChunkState {
 
 
 /// Terrain chunk.
+#[derive(Clone)]
 pub struct TerrainChunk {
     /// Terrain this chunk belongs to.
     pub terrain: TerrainId,
@@ -85,7 +86,7 @@ pub struct TerrainChunk {
     /// Brush paints.
     pub brush_paints: Vec<BrushPaint>,
     /// Slice geometry data.
-    pub chunk_slice_geometries: [TerrainChunkGeometry; SLICES_COUNT],
+    pub chunk_slice_geometries: Vec<TerrainChunkGeometry>,
     /// Buffers.
     pub buffers: Vec<TerrainChunkGeometry>,
     /// Slice contents hashes.
@@ -128,7 +129,7 @@ impl TerrainChunk {
             cells: vec![0; CHUNK_SIZE * CHUNK_SIZE * CHUNK_HEIGHT],
             shafts: vec![0; CHUNK_SIZE * CHUNK_SIZE],
             brush_paints: Vec::new(),
-            chunk_slice_geometries: [TerrainChunkGeometry::default(); SLICES_COUNT],
+            chunk_slice_geometries: vec![TerrainChunkGeometry::default(); SLICES_COUNT],
             buffers: Vec::new(),
             slice_contents_hashes: [0; SLICES_COUNT],
             generated_slice_contents_hashes: [0; SLICES_COUNT],

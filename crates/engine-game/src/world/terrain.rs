@@ -426,7 +426,7 @@ impl TerrainBrush {
 }
 
 /// Terrain geometry placeholder.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Copy, Default)]
 pub struct TerrainChunkGeometry {
     pub buffer: Vec<f32>,
 }
