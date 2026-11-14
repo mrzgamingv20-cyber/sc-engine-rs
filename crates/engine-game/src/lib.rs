@@ -7,6 +7,7 @@
 #![forbid(unsafe_code)]
 
 pub mod block;
+pub mod blocks;
 pub mod entity;
 pub mod game;
 pub mod subsystem;
@@ -14,6 +15,7 @@ pub mod world;
 pub mod entity_system;
 
 pub use block::{Block, BlockId};
+pub use blocks::*;
 pub use entity::EntityId;
 pub use game::Game;
 pub use subsystem::Subsystem;
