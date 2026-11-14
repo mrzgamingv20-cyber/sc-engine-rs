@@ -186,8 +186,7 @@ impl TerrainChunk {
 
 /// Brush paint for terrain modifications.
 #[derive(Debug, Clone)]
-/// Terrain brush paint.
-#[derive(Debug, Clone)]
 pub struct BrushPaint {
     pub position: Point3,
     pub brush: TerrainBrush,
+}
