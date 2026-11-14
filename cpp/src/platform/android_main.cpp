@@ -143,7 +143,11 @@ void android_main(android_app* app) {
             const auto now = clock::now();
             const float dt = std::chrono::duration<float>(now - previous).count();
             previous = now;
+
+            // Render bookends
+            sc_render_begin_frame(0.05f, 0.07f, 0.12f, 1.0f);
             sc_game_tick(dt);
+            sc_render_end_frame();
         }
 
         // Skeleton frame pacing (~60 FPS). Replace with Choreographer/vsync in Fase 4.
