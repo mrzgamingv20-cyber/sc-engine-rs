@@ -108,9 +108,7 @@ pub enum FoodType {
 }
 
 /// Block data for CSV loading.
-#[allow(clippy::new_without_default)]
 #[derive(Debug)]
-#[allow(clippy::new_without_default)]
 pub struct BlockAllocateData {
     pub block: Box<dyn Block>,
     pub index: i32,
@@ -189,9 +187,7 @@ impl Default for BlocksManager {
     }
 }
 /// Air block - empty/non-solid.
-#[allow(clippy::new_without_default)]
 #[derive(Debug)]
-#[allow(clippy::new_without_default)]
 pub struct AirBlock {
     pub block_index: i32,
 }
@@ -240,9 +236,7 @@ impl Block for AirBlock {
 }
 
 /// Dirt block - basic solid cube.
-#[allow(clippy::new_without_default)]
 #[derive(Debug)]
-#[allow(clippy::new_without_default)]
 pub struct DirtBlock {
     pub block_index: i32,
 }
@@ -290,9 +284,7 @@ impl Block for DirtBlock {
 }
 
 /// Sand block - basic solid cube.
-#[allow(clippy::new_without_default)]
 #[derive(Debug)]
-#[allow(clippy::new_without_default)]
 pub struct SandBlock {
     pub block_index: i32,
 }
@@ -339,9 +331,7 @@ impl Block for SandBlock {
 }
 
 /// Basalt block - basic solid cube.
-#[allow(clippy::new_without_default)]
 #[derive(Debug)]
-#[allow(clippy::new_without_default)]
 pub struct BasaltBlock {
     pub block_index: i32,
 }
@@ -388,9 +378,7 @@ impl Block for BasaltBlock {
 }
 
 /// Leaves block - transparent, non-collidable.
-#[allow(clippy::new_without_default)]
 #[derive(Debug)]
-#[allow(clippy::new_without_default)]
 pub struct LeavesBlock {
     pub block_index: i32,
 }
@@ -438,9 +426,7 @@ impl Block for LeavesBlock {
 }
 
 /// Water block - fluid, non-collidable.
-#[allow(clippy::new_without_default)]
 #[derive(Debug)]
-#[allow(clippy::new_without_default)]
 pub struct WaterBlock {
     pub block_index: i32,
 }
@@ -488,9 +474,7 @@ impl Block for WaterBlock {
 }
 
 /// Grass block - top soil with grass color.
-#[allow(clippy::new_without_default)]
 #[derive(Debug)]
-#[allow(clippy::new_without_default)]
 pub struct GrassBlock {
     pub block_index: i32,
 }
