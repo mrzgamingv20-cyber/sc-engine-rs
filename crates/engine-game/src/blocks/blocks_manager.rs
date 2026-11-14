@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use super::block::Block;
 
 /// Blocks manager - registry for all blocks.
 pub struct BlocksManager {
