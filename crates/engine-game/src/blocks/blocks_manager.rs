@@ -109,18 +109,14 @@ impl BlocksManager {
             for j in 1..array.len() {
                 let _field_name = first_line[j];
                 let data = array[j];
-                if !data.is_empty() {
-                    if data.starts_with('#') {
-                        // Reference to another block by name
-                        let ref_type_name = &data[1..];
-                        if !ref_type_name.is_empty() {
-                            // Find the block by name
-                            if self.block_name_to_index.get(ref_type_name).is_none() {
-                                return Err(format!(
-                                    "Reference type {} not found",
-                                    ref_type_name
-                                ));
-                            }
+                if !data.is_empty() && data.starts_with('#') {
+                    // Reference to another block by name
+                    if let Some(ref_type_name) = data.strip_prefix('#') {
+                        if !ref_type_name.is_empty() && !self.block_name_to_index.contains_key(ref_type_name) {
+                            return Err(format!(
+                                "Reference type {} not found",
+                                ref_type_name
+                            ));
                         }
                     }
                 }

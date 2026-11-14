@@ -1,3 +1,5 @@
+#![allow(clippy::new_without_default)]
+
 /// Block trait - core properties used by generator and mesher.
 pub trait Block: Send + Sync + std::fmt::Debug {
     /// Block index (id = index in registry).
@@ -106,6 +108,7 @@ pub enum FoodType {
 }
 
 /// Block data for CSV loading.
+#[allow(clippy::new_without_default)]
 #[derive(Debug)]
 #[allow(clippy::new_without_default)]
 pub struct BlockAllocateData {
@@ -186,6 +189,7 @@ impl Default for BlocksManager {
     }
 }
 /// Air block - empty/non-solid.
+#[allow(clippy::new_without_default)]
 #[derive(Debug)]
 #[allow(clippy::new_without_default)]
 pub struct AirBlock {
@@ -236,6 +240,7 @@ impl Block for AirBlock {
 }
 
 /// Dirt block - basic solid cube.
+#[allow(clippy::new_without_default)]
 #[derive(Debug)]
 #[allow(clippy::new_without_default)]
 pub struct DirtBlock {
@@ -285,6 +290,7 @@ impl Block for DirtBlock {
 }
 
 /// Sand block - basic solid cube.
+#[allow(clippy::new_without_default)]
 #[derive(Debug)]
 #[allow(clippy::new_without_default)]
 pub struct SandBlock {
@@ -333,6 +339,7 @@ impl Block for SandBlock {
 }
 
 /// Basalt block - basic solid cube.
+#[allow(clippy::new_without_default)]
 #[derive(Debug)]
 #[allow(clippy::new_without_default)]
 pub struct BasaltBlock {
@@ -381,6 +388,7 @@ impl Block for BasaltBlock {
 }
 
 /// Leaves block - transparent, non-collidable.
+#[allow(clippy::new_without_default)]
 #[derive(Debug)]
 #[allow(clippy::new_without_default)]
 pub struct LeavesBlock {
@@ -430,6 +438,7 @@ impl Block for LeavesBlock {
 }
 
 /// Water block - fluid, non-collidable.
+#[allow(clippy::new_without_default)]
 #[derive(Debug)]
 #[allow(clippy::new_without_default)]
 pub struct WaterBlock {
@@ -479,6 +488,7 @@ impl Block for WaterBlock {
 }
 
 /// Grass block - top soil with grass color.
+#[allow(clippy::new_without_default)]
 #[derive(Debug)]
 #[allow(clippy::new_without_default)]
 pub struct GrassBlock {
