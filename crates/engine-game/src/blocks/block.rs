@@ -230,6 +230,7 @@ impl Block for AirBlock {
     fn friction_factor(&self) -> f32 { 1.0 }
     fn is_index_dynamic(&self) -> bool { false }
     fn get_creative_values(&self) -> Vec<i32> { Vec::new() }
+}
 
 /// Dirt block - basic solid cube.
 pub struct DirtBlock {
