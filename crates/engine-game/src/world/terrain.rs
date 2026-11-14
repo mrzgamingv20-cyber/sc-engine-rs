@@ -40,7 +40,9 @@ impl Default for ChunksStorage {
     fn default() -> Self {
         Self::new()
     }
+}
 
+impl ChunksStorage {
     /// Get chunk at coordinates.
     pub fn get(&self, x: i32, y: i32) -> Option<&TerrainChunk> {
         let mut num = ((x + (y << Self::SHIFT)) & Self::CAPACITY_MINUS_ONE as i32) as usize;
@@ -126,7 +128,9 @@ impl Default for Terrain {
     fn default() -> Self {
         Self::new()
     }
+}
 
+impl Terrain {
     /// Get chunk at coordinates.
     pub fn get_chunk_at_coords(&self, chunk_x: i32, chunk_z: i32) -> Option<&TerrainChunk> {
         self.all_chunks.get(chunk_x, chunk_z)
