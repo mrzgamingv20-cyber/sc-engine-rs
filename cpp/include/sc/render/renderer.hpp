@@ -48,7 +48,7 @@ private:
     void* surface_ = nullptr;
     void* context_ = nullptr;
     unsigned int meshVbo_ = 0;
-    unsigned int triangleVbo_ = 0;
+    unsigned int triangle_vbo_ = 0;
     int meshVertexCount_ = 0;
     bool initialized_ = false;
 };
