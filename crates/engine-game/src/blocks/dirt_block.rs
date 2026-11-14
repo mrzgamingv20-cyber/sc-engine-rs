@@ -140,6 +140,9 @@ impl Block for BasaltBlock {
     fn friction_factor(&self) -> f32 { 1.0 }
 }
 
+use super::block::{Block, BlockDigMethod};
+use super::block::FoodType;
+
 /// Leaves block - transparent, non-collidable.
 pub struct LeavesBlock {
     pub block_index: i32,
