@@ -62,11 +62,11 @@ impl BoundingFrustum {
         self.planes[5].d = -value.m44 - value.m42;
 
         // Normalize planes
-        for i in 0..6 {
-            let num = self.planes[i].normal.length();
+        for plane in &mut self.planes {
+            let num = plane.normal.length();
             if num > 0.0 {
-                self.planes[i].normal /= num;
-                self.planes[i].d /= num;
+                plane.normal /= num;
+                plane.d /= num;
             }
         }
 
